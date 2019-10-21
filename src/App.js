@@ -1,12 +1,22 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import AppBar from './components/topBar/appBar';
+import 'antd/dist/antd.css';
+import SideBar from './components/sideBar/SideBar';
 
-function App() {
+class App extends Component {
+  state={
+    open:false
+  }
+  handleExpaned=()=>{
+
+  }
+  render(){
   return (
     <Fragment>
-      <AppBar position='fixed' backgroundColor='32a852' />
+      <AppBar position='static' backgroundColor='fff' iconFontColor='0f96ab'/>
+      <SideBar/>
     </Fragment>
   );
 }
-
+}
 export default App;
