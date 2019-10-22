@@ -13,12 +13,12 @@ import { Icon, Button, Divider, Avatar, Badge } from 'antd';
    **iconFontColor - you can change Icon Color
 */
 
-const appBar = ({ position, color, backgroundColor, iconFontColor }) => {
+const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon }) => {
     return (
         <Fragment >
-            <AppBar  position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `#${backgroundColor}` }}>
+            <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `#${backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,1s' }}>
                 <Toolbar >
-                    <Button type="primary" style={{ background: 'transparent', color: `#${iconFontColor ? iconFontColor : 'ed3232'}`, border: 'none', marginRight: 15 }}>
+                    <Button onClick={() => appBarExpandIcon()} type="primary" style={{ background: 'transparent', color: `#${iconFontColor ? iconFontColor : 'ed3232'}`, border: 'none', marginRight: 15 }}>
                         <Icon type='menu-fold' />
                     </Button>
                     <Typography variant="h6" color='primary'>
