@@ -1,18 +1,27 @@
 import React, { Component } from 'react'
-import { Menu, Icon } from 'antd';
+import { Menu, Icon, Avatar } from 'antd';
+import { Typography } from '@material-ui/core';
 
 const { SubMenu } = Menu;
 class SideBar extends Component {
     render() {
-        const { collapsed, onMouseEnterSideBar, sideBarColor } = this.props
+        const { collapsed, onMouseEnterSideBar, sideBarColor,display } = this.props
         return (
-            <div style={{ width: 250,marginTop:-62 }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
+            <div style={{ width: 250, marginTop: -64 }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
                 <Menu
-                    style={{ height: '90vh', background: `#${sideBarColor ? sideBarColor : 'fafafa'}`,transition:'width,1s' }}
+                    style={{ height: '90vh', background: `#${sideBarColor ? sideBarColor : 'fafafa'}`, transition: 'width,1s' }}
                     defaultSelectedKeys={['1']}
                     mode="inline"
                     inlineCollapsed={collapsed}
                 >
+                    <div style={{ height: '20vh', background: '#2a2b2b', textAlign: 'center', justifyContent: 'center',marginBottom:'15%' }}>
+                        <div style={{ textAlign: 'center'}}>
+                            <Avatar style={{ marginTop: '25%' }} size={!collapsed?80:70} src="http://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg" />
+                            <Typography variant="h6" style={{color:'#048063',display:display}}>
+                               User Name
+                            </Typography>
+                        </div>
+                    </div>
                     <SubMenu
                         key="sub1"
                         title={

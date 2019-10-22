@@ -10,20 +10,23 @@ class App extends Component {
   state = {
     open: true,
     marginSize: InitialmarginSize,
-    buttonClicked: false
+    buttonClicked: false,
+    display: 'none'
   }
   handleExpanedButton = () => {
     this.setState({
       open: !this.state.open,
-      buttonClicked: !this.state.buttonClicked
+      buttonClicked: !this.state.buttonClicked,
     })
     if (this.state.marginSize === InitialmarginSize) {
       this.setState({
-        marginSize: ExpandmarginSize
+        marginSize: ExpandmarginSize,
+        display: 'block'
       })
     } else {
       this.setState({
-        marginSize: InitialmarginSize
+        marginSize: InitialmarginSize,
+        display: 'none'
       })
     }
   }
@@ -34,11 +37,13 @@ class App extends Component {
       })
       if (this.state.marginSize === InitialmarginSize) {
         this.setState({
-          marginSize: ExpandmarginSize
+          marginSize: ExpandmarginSize,
+          display: 'block'
         })
       } else {
         this.setState({
-          marginSize: InitialmarginSize
+          marginSize: InitialmarginSize,
+          display: 'none'
         })
       }
     }
@@ -46,8 +51,8 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <AppBar position='static' backgroundColor='fff' iconFontColor='0f96ab' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} />
-        <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} />
+        <AppBar position='static' backgroundColor='fff' iconFontColor='0f96ab' marginSize={this.state.marginSize} appBarExpandIcon={this.handleExpanedButton} collapsed={this.state.open} />
+        <SideBar collapsed={this.state.open} onMouseEnterSideBar={this.handleExpaned} display={this.state.display} />
         <Container textAlign="right" />
       </Fragment>
     );
