@@ -5,20 +5,21 @@ import { Typography } from '@material-ui/core';
 const { SubMenu } = Menu;
 class SideBar extends Component {
     render() {
-        const { collapsed, onMouseEnterSideBar, sideBarColor,display } = this.props
+        const { collapsed, onMouseEnterSideBar, sideBarColor, display } = this.props
         return (
-            <div style={{ width: 250, marginTop: -64 }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
+            <div style={{ width: 'auto', marginTop: -64 }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
                 <Menu
-                    style={{ height: '90vh', background: `#${sideBarColor ? sideBarColor : 'fafafa'}`, transition: 'width,1s' }}
+                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '100px'}`, background: `#${sideBarColor ? sideBarColor : 'fafafa'}`, transition: 'width,1s' }}
                     defaultSelectedKeys={['1']}
                     mode="inline"
                     inlineCollapsed={collapsed}
                 >
-                    <div style={{ height: '20vh', background: '#2a2b2b', textAlign: 'center', justifyContent: 'center',marginBottom:'15%' }}>
-                        <div style={{ textAlign: 'center'}}>
-                            <Avatar style={{ marginTop: '25%' }} size={!collapsed?80:70} src="http://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg" />
-                            <Typography variant="h6" style={{color:'#048063',display:display}}>
-                               User Name
+                    <div style={{ height: '20vh', background: '#353c48', textAlign: 'center', justifyContent: 'center', marginBottom: '25%' }}>
+                        <div style={{ textAlign: 'center' }}>
+                                <Avatar style={{ marginTop: '25%', transition: 'width,1s', border: `${!collapsed ? '5px solid #2d323e' : 'none'}` }} size={!collapsed ? 90 : 70} src="http://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg" >
+                                </Avatar>
+                            <Typography variant="h6" style={{ color: '#048063', display: display }}>
+                                User Name
                             </Typography>
                         </div>
                     </div>
@@ -31,7 +32,7 @@ class SideBar extends Component {
                             </span>
                         }
                     >
-                        <Menu.ItemGroup key="g1" title="Item 1">
+                        <Menu.ItemGroup key="g1" title="Item 1" >
                             <Menu.Item key="1">Option 1</Menu.Item>
                             <Menu.Item key="2">Option 2</Menu.Item>
                         </Menu.ItemGroup>

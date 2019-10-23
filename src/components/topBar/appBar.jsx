@@ -18,26 +18,26 @@ const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, a
         <Fragment >
             <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `#${backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,1s' }}>
                 <Toolbar >
-                    <Button onClick={() => appBarExpandIcon()} type="primary" style={{ background: 'transparent', color: `#${iconFontColor ? iconFontColor : 'ed3232'}`, border: 'none', marginRight: 15 }}>
+                    <Button onClick={() => appBarExpandIcon()} type="primary" style={{ background: 'transparent', color: `#${collapsed ? iconFontColor : 'ed3232'}`, border: 'none', marginRight: 15 }}>
                         <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
                     </Button>
-                    <Typography variant="h6" color='primary'>
+                    <Typography variant="h6" color='primary' style={{width:'15%'}}>
                         Defect-Tracker
                     </Typography>
                     <IconButton style={{ marginLeft: '70%' }}>
                         <Badge count={5}>
-                            <Avatar size="small" icon="alert" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
+                            <Avatar size={30} icon="alert" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
                         </Badge>
                     </IconButton>
-                    <Divider type="vertical" />
+                    <Divider type="vertical"  style={{height:'50px'}}/>
                     <IconButton>
                         <Badge count={5}>
-                            <Avatar size="small" icon="message" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
+                            <Avatar size={30} icon="message" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
                         </Badge>
                     </IconButton>
-                    <Divider type="vertical" />
+                    <Divider type="vertical" style={{height:'50px'}}/>
                     <IconButton>
-                        <Avatar size="small" icon="logout" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
+                        <Avatar size={30} icon="logout" style={{ color: `#${iconFontColor ? iconFontColor : '048691'}` }} />
                     </IconButton>
                 </Toolbar>
             </AppBar>
