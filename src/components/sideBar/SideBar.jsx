@@ -200,10 +200,9 @@ class SideBar extends Component {
     render() {
         const { collapsed, onMouseEnterSideBar, sideBarColor, display } = this.props
         return (
-            <div style={{ width: 'auto', marginTop: -64, overflow: 'auto' }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
+            <div style={{ width: 'auto', marginTop: -64, overflowY: 'hidden', zIndex: 100 }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
                 <Menu
-                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '100px'}`, background: `#${sideBarColor ? sideBarColor : 'fafafa'}`, transition: 'width,0.5s', overflow: 'auto' }}
-                    defaultSelectedKeys={['1']}
+                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '100px'}`, background: `#${sideBarColor ? sideBarColor : 'fafafa'}`, transition: 'width,0.5s', overflow: 'auto', zIndex: 100 }}
                     mode="inline"
                     inlineCollapsed={collapsed}
                 >
@@ -232,7 +231,7 @@ class SideBar extends Component {
                                         {content.subMenu.map((submenuContent, subIndex) => {
                                             if (submenuContent.status === 1) {
                                                 return (
-                                                    <SubMenu key={subIndex} title={
+                                                    <SubMenu key={`subAdded${subIndex}`} title={
                                                         <span>
                                                             <Icon type={submenuContent.icon} />
                                                             <span>{submenuContent.name}</span>
@@ -242,7 +241,7 @@ class SideBar extends Component {
                                                         {
                                                             submenuContent.subcontent.map((subContents, indexSub) => {
                                                                 return (
-                                                                    <Menu.Item key={indexSub}>{subContents.name}</Menu.Item>
+                                                                    <Menu.Item key={`sub${subIndex}join${indexSub}`}>{subContents.name}</Menu.Item>
                                                                 )
                                                             })
                                                         }
@@ -250,7 +249,7 @@ class SideBar extends Component {
                                                 )
                                             } else {
                                                 return (
-                                                    <Menu.Item key={subIndex}>{submenuContent.name}</Menu.Item>
+                                                    <Menu.Item key={`oneSubModule${index}join${subIndex}`}>{submenuContent.name}</Menu.Item>
                                                 )
                                             }
                                         })}
@@ -258,7 +257,7 @@ class SideBar extends Component {
                                 )
                             } else {
                                 return (
-                                    <Menu.Item key={index}>
+                                    <Menu.Item key={`without${index}`}>
                                         <Icon type={content.icon} />
                                         <span>{content.name}</span>
                                     </Menu.Item>
