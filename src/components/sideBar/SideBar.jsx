@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Menu, Icon, Avatar } from 'antd';
 import { Typography } from '@material-ui/core';
 
+const sideBarContent=[{name:'Dashborad',subMenu:[{name:'Company',url:'/company'}],icon:'user',status:1}]
 const { SubMenu } = Menu;
 class SideBar extends Component {
     render() {
@@ -9,20 +10,29 @@ class SideBar extends Component {
         return (
             <div style={{ width: 'auto', marginTop: -64 }} onMouseEnter={() => onMouseEnterSideBar()} onMouseLeave={() => onMouseEnterSideBar()}>
                 <Menu
-                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '100px'}`, background: `#${sideBarColor ? sideBarColor : 'fafafa'}`, transition: 'width,1s' }}
+                    style={{ position: 'absolute', height: '100%', width: `${!collapsed ? '250px' : '100px'}`, background: `#${sideBarColor ? sideBarColor : 'fafafa'}`, transition: 'width,0.5s' }}
                     defaultSelectedKeys={['1']}
                     mode="inline"
                     inlineCollapsed={collapsed}
                 >
                     <div style={{ height: '20vh', background: '#353c48', textAlign: 'center', justifyContent: 'center', marginBottom: '25%' }}>
                         <div style={{ textAlign: 'center' }}>
-                                <Avatar style={{ marginTop: '25%', transition: 'width,1s', border: `${!collapsed ? '5px solid #2d323e' : 'none'}` }} size={!collapsed ? 90 : 70} src="http://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg" >
+                                <Avatar style={{ marginTop: '25%', transition: 'width,0.5s', border: `${!collapsed ? '5px solid #2d323e' : 'none'}` }} size={!collapsed ? 90 : 70} src="http://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg" >
                                 </Avatar>
                             <Typography variant="h6" style={{ color: '#048063', display: display }}>
                                 User Name
                             </Typography>
                         </div>
                     </div>
+                    {
+                        sideBarContent.map((centent,index)=>
+                            (
+                                <subMenu>
+                                    
+                                </subMenu>
+                            )
+                        )
+                    }
                     <SubMenu
                         key="sub1"
                         title={

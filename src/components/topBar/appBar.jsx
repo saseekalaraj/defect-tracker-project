@@ -16,7 +16,7 @@ import { Icon, Button, Divider, Avatar, Badge } from 'antd';
 const appBar = ({ position, color, backgroundColor, iconFontColor, marginSize, appBarExpandIcon,collapsed}) => {
     return (
         <Fragment >
-            <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `#${backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,1s' }}>
+            <AppBar position={position ? position : 'static'} color={color ? color : 'primary'} style={{ background: `#${backgroundColor}`, marginLeft: marginSize, width: `${marginSize === 80 ? '95%' : '82%'}`, transition: 'width,0.5s' }}>
                 <Toolbar >
                     <Button onClick={() => appBarExpandIcon()} type="primary" style={{ background: 'transparent', color: `#${collapsed ? iconFontColor : 'ed3232'}`, border: 'none', marginRight: 15 }}>
                         <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
