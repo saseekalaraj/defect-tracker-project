@@ -8,7 +8,7 @@ export default class ProjectAllocation extends Component {
     render() {
         return (
             <div>
-                <Grid item xs={11} style={{ marginTop: '10px' }}>
+                <Grid item xs={11} style={{ marginTop: '2%' }}>
                     <Segment>
                         <BreadCrumbs />
                         <AllocationButton />

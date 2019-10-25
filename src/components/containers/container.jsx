@@ -1,7 +1,7 @@
 import React from 'react';
 import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
-import ProjectAllocation from '../../screens/project/ProjectAllocation';
+import Table from '../tables/table'
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
@@ -28,10 +28,10 @@ export default function container({ textAlign, collapsed }) {
     <div style={useStyles.root}>
       <Grid direction="row" container justify="center" alignItems={textAlign ? textAlign : "center"} style={useStyles.gridContainer} spacing={4}>
         <Grid item xs={12} style={useStyles.subContainer}>
-          <ProjectAllocation />
+          <Table />
         </Grid>
       </Grid>
-    </div>
+    </div>  
   )
 }
 
