@@ -22,10 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function handleClick(event) {
-  event.preventDefault();
-  alert('You clicked a breadcrumb.');
-}
+
 
 export default function IconBreadcrumbs() {
   const classes = useStyles();
@@ -33,14 +30,13 @@ export default function IconBreadcrumbs() {
   return (
     <Paper elevation={0} className={classes.root}>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link color="inherit" href="/" onClick={handleClick} className={classes.link}>
+        <Link color="inherit" href="/"  className={classes.link}>
           <HomeIcon className={classes.icon} />
           Material-UI
         </Link>
         <Link
           color="inherit"
           href="/getting-started/installation/"
-          onClick={handleClick}
           className={classes.link}
         >
           <WhatshotIcon className={classes.icon} />
