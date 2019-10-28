@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'semantic-ui-react';
 import { Grid } from '@material-ui/core';
+import Model from '../model/submitModel'
 import ProjectAllocation from '../../screens/project/ProjectAllocation';
 // container using material Ui
 // container has property 
 //'textAlight' - left, right, center, justified
 
-export default function container({ textAlign, collapsed }) {
+export default function Container({ textAlign, collapsed }) {
+  const [open, setOpen] = useState(true);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   const useStyles = {
     root: {
       marginTop: '5%',
@@ -20,20 +30,21 @@ export default function container({ textAlign, collapsed }) {
     gridContainer: {
       overflowY: 'auto',
     },
-    subContainer:{
-       marginLeft:`${collapsed?'2%':'-10%'}`,
-       transition:'marginLeft,5s',
+    subContainer: {
+      marginLeft: `${collapsed ? '2%' : '-10%'}`,
+      transition: 'marginLeft,5s',
 
     }
   };
+
   return (
     <div style={useStyles.root}>
       <Grid direction="row" container justify="center" alignItems={textAlign ? textAlign : "center"} style={useStyles.gridContainer} spacing={4}>
-        <Grid item xs={collapsed?12:10} style={useStyles.subContainer}>
-          <ProjectAllocation />
+        <Grid item xs={collapsed ? 12 : 10} style={useStyles.subContainer}>
+          <Model open={open} handleClose={handleClose} handleOpen={handleOpen} form={<ProjectAllocation/>} />
         </Grid>
       </Grid>
-    </div>  
+    </div>
   )
 }
 
