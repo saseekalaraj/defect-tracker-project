@@ -13,6 +13,7 @@
   color: #fff !important;
   border-bottom: #fff 2px solid !important;
   text-align: center !important;
+  border-right: #fff 2px solid !important;
 }
 .ant-table-thead > tr > th .ant-table-header-column .ant-table-column-sorters > *:not(.ant-table-column-sorter) {
   color:#fff !important;
