@@ -21,13 +21,15 @@ export default function container({ textAlign, collapsed }) {
       overflowY: 'auto',
     },
     subContainer:{
-      marginLeft:'2%'
+       marginLeft:`${collapsed?'2%':'-10%'}`,
+       transition:'marginLeft,5s',
+
     }
   };
   return (
     <div style={useStyles.root}>
       <Grid direction="row" container justify="center" alignItems={textAlign ? textAlign : "center"} style={useStyles.gridContainer} spacing={4}>
-        <Grid item xs={12} style={useStyles.subContainer}>
+        <Grid item xs={collapsed?12:10} style={useStyles.subContainer}>
           <ProjectAllocation />
         </Grid>
       </Grid>
