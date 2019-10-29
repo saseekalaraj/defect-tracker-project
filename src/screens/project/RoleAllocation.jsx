@@ -3,6 +3,7 @@ import { Transfer, Table, Tag } from 'antd';
 import difference from 'lodash/difference';
 import { Button } from 'semantic-ui-react';
 import Model from '../../components/model/model'
+import EditRole from './EditRole';
 
 
 var originTargetKeys;
@@ -154,7 +155,7 @@ const color = ['blue', 'green', 'orange', 'red']
           leftColumns={leftTableColumns}
           rightColumns={rightTableColumns}
         />
-        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={90} form={<RoleAllocation/>} title='Edit Role'/>
+        <Model open={open} handleOpen={this.handleOpen} handleClose={this.handleClose} width={30} form={<EditRole/>} title='Edit Role'/>
       </div>
     );
   }
